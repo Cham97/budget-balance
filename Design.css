@@ -1,0 +1,148 @@
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+	overflow: hidden;
+  background: #43cea2;
+  color: #333;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	
+	.hidden {
+		visibility: hidden;
+	}
+	.button {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		height: 40px;
+		width: 150px;
+		color: #FFF;
+		transform: translate(-70px, -30px);
+		border-radius: 50px;
+		border: 2px solid #FFF;
+		text-align: center;
+		padding-top: 20px;
+		font-weight: bold;
+		cursor: pointer;
+		transition: all 0.5s ease-in-out;
+		z-index:1;
+		&:hover {
+			background: #43cea2;
+		}
+		.checkmark {
+			position: absolute;
+			z-index: 2;
+			top: 5px;
+			left: 20px;
+			font-size: 40px;
+			opacity: 0;
+			color: #FFF;
+			transform: scaleX(-1) rotate(-35deg);
+		}
+		.explosion {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 56px;
+			height: 56px;
+			border-radius: 56px;
+			border: 2px solid #FFF;
+			opacity:0;
+			z-index:99;
+		}
+	}
+	
+	.circle {
+			position: absolute;
+			top: 11px;
+			left: 101px;
+			stroke-width: 2px;
+			stroke-dasharray: 800;
+  		stroke-dashoffset: 800;
+			transform: rotate(-90deg);
+			
+	}
+	
+	input:checked {
+		& ~ .button {
+			// animation: button .5s ease both, fill .5s ease-out 1.5s forwards;
+			
+			animation: button .5s ease both;
+			.checkmark {
+				animation: check 2s ease-out 1s both;
+			}
+			.explosion {
+				animation: explode 1s ease-out 2.5s both;
+			}
+		}
+		& ~ .circle {
+			z-index:2;
+			animation: circle 5s linear forwards 0.5s;
+		}
+	}
+}
+
+
+@keyframes button {
+	0% {
+		width: 150px;
+		border-color: #fff;
+		color: #fff;
+	}
+	50% {
+		color: transparent;
+	}
+	100% {
+		width: 60px;
+		left: 62%;
+		border-color: #45B078;
+		background: transparent;
+		color: transparent;
+		
+	}
+}
+
+@keyframes circle {
+
+	100% {
+    stroke-dashoffset: 0;
+		stroke-dasharray: 500 500;
+  }
+}
+
+@keyframes check {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes explode {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1.5);
+		opacity: 0;
+	}
+}
+        @font-face {
+            font-family: myFirstFont;
+            src: url(ImplecoNormal.ttf);
+        }
+        div{
+            font-family: myFirstFont;
+        }

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Budget Balance</title>
+    <link rel="Design" href="Design.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="expenses.js"></script>
+    <style>
+        @font-face {
+            font-family: myFirstFont;
+            src: url(ImplecoNormal.ttf);
+            font-family: myFirstBold;
+            src: url(ImplecoBold.ttf)
+        }
+
+        div {
+            font-family: myFirstFont;
+        }
+
+        p {
+            font-family: myFirstBold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="container p-5 bg-secondary text-white">
+            <h1 class="text-left">New Expense</h1>
+        </div>
+    </div>
+    <div class="bg-light clearfix">
+        <div class="container p-3">
+            <div class="col-smt-8">
+                <p class="text-start">Add Amount of Money:*</p>
+                <div class="input-group">
+                    <input type="number" id="amount" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    <span class="input-group-text">€</span>
+                </div>
+            </div>
+        </div>
+        <div class="container p-3">
+            <div class="col-smt-8">
+                <p class="text-start">Category:*</p>
+                <select id="category" class="form-select">
+                    <option>Salary</option>
+                    <option>Others</option>
+                </select>
+            </div>
+        </div>
+        <div class="container p-3">
+            <div class="col-smt-4">
+                <p class="text-start">Date:*</p>
+                <input type="date" class="form-control" id="date">
+            </div>
+        </div>
+        <div class="container p-3">
+            <div class="col-smt-5">
+                <div class="form-group">
+                    <p class="text-start">Comment:</p>
+                    <textarea class="form-control" id="comments" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p id="alert"></p>
+    <div class="text-center p-3">
+        <a class="btn btn-danger" onclick="addValue()">
+            Add new Expense
+        </a>
+    </div>
+
+
+    </div>
+</body>
+
+</html>
